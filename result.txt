@@ -1,0 +1,118 @@
+EEG Motor Imagery Classification - Experimental Results
+
+Dataset:
+PhysioNet EEG Motor Movement/Imagery Dataset (EEGMMIDB)
+
+Subjects:
+1-10
+
+Runs:
+4, 8, 12
+
+Total trials:
+450
+
+Channels:
+64
+
+Sampling frequency:
+160 Hz
+
+Epoch length:
+4 seconds
+
+Classes:
+Left-hand motor imagery
+Right-hand motor imagery
+
+
+========================================
+Baseline: Band Power + Logistic Regression
+========================================
+
+Features:
+128 band-power features
+Frequency range: 8-30 Hz
+
+Cross-validation:
+5-fold GroupKFold
+Subject-wise split
+
+Mean Accuracy: 0.562
+Mean Precision: 0.609
+Mean Recall: 0.473
+Mean F1-score: 0.479
+
+
+========================================
+Baseline: Band Power + SVM
+========================================
+
+Features:
+128 band-power features
+Frequency range: 8-30 Hz
+
+Cross-validation:
+5-fold GroupKFold
+Subject-wise split
+
+Mean Accuracy: 0.536
+Mean Precision: 0.464
+Mean Recall: 0.185
+Mean F1-score: 0.256
+
+
+========================================
+CSP + SVM
+========================================
+
+CSP components: 4
+Frequency range: 8-30 Hz
+
+Mean Accuracy: 0.533
+Mean Precision: 0.547
+Mean Recall: 0.666
+Mean F1-score: 0.547
+
+
+========================================
+CSP + SVM - Hyperparameter Tuning
+========================================
+
+CSP components: 4
+
+Hyperparameters:
+C and gamma tuned using nested GroupKFold
+
+Mean Accuracy: 0.556
+Mean Precision: 0.470
+Mean Recall: 0.400
+Mean F1-score: 0.417
+
+
+========================================
+Frequency Band Comparison
+========================================
+
+CSP components: 4
+SVM: RBF
+C = 10
+gamma = 0.001
+
+8-30 Hz:
+Accuracy: 0.511
+Precision: 0.438
+Recall: 0.316
+F1: 0.261
+
+8-13 Hz (mu/alpha):
+Accuracy: 0.536
+Precision: 0.527
+Recall: 0.544
+F1: 0.517
+
+13-30 Hz (beta):
+Accuracy: 0.531
+Precision: 0.609
+Recall: 0.464
+F1: 0.410

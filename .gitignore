@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+
+# EEG generated data
+*.npy
+
+# MNE data
+mne_data/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
